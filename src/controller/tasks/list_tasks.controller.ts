@@ -3,7 +3,7 @@ import { Task } from "../../models/task.model";
 import { ServerError } from "../../error/server.error";
 import { RequestError } from "../../error/request.error";
 import { UserDataBase } from "../../database/user.database";
-import { SuccessResponse } from "../../util/success.response";
+import { SuccessResponse } from "../../util/success/success.response";
 
 export class ListTasksController {
   public listTasks(req: Request, res: Response) {

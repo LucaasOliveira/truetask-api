@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { UserDataBase } from "../../database/user.database";
 import { RequestError } from "../../error/request.error";
 import { ServerError } from "../../error/server.error";
-import { SuccessResponse } from "../../util/success.response";
+import { SuccessResponse } from "../../util/success/success.response";
 import { User } from "../.././models/user.model";
 
 export class SignInUserController {
