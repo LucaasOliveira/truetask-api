@@ -5,47 +5,45 @@ import {
   JoinColumn,
   ManyToOne,
   PrimaryGeneratedColumn,
-  UpdateDateColumn,
+  UpdateDateColumn
 } from "typeorm";
 import { UserEntity } from "./user.entity";
 
 @Entity({
-  name: "tasks",
+  name: "tasks"
 })
 export class TaskEntity {
   @PrimaryGeneratedColumn("uuid", {
-    name: "id_task",
+    name: "id_task"
   })
   id: string;
 
-  @Column()
-  title: string;
+  @Column() title: string;
 
-  @Column()
-  description: string;
+  @Column() description: string;
 
   @Column({
-    default: false,
+    default: false
   })
   archived: boolean;
 
   @CreateDateColumn({
     type: "timestamp",
-    name: "dthr_criacao",
+    name: "dthr_criacao"
   })
   drhrCriacao: Date;
 
   @UpdateDateColumn({
     type: "timestamp",
-    name: "dthr_atualizacao",
+    name: "dthr_atualizacao"
   })
   drhrAtualizacao: Date;
 
   @ManyToOne(() => UserEntity, {
-    onDelete: "CASCADE",
+    onDelete: "CASCADE"
   })
   @JoinColumn({
-    name: "id_user",
+    name: "id_user"
   })
   user: UserEntity;
 }

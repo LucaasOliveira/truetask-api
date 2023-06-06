@@ -1,21 +1,23 @@
 import { Router } from "express";
-import { SignInUserController } from "../controller/users/sign_in_user.controller";
-import { CreateUserController } from "../controller/users/create_user.controller";
-import { ListUserController } from "../controller/users/list_user.controller";
+import { TaskController } from "../controller/task.controller";
+import { UserController } from "../controller/user.controller";
 import { SignInValidatorMiddleware } from "../middleware/sign_in-validator-middleware";
-import { taskRoutes } from "./task.routes";
 
 export const userRoutes = () => {
-  const api = Router();
-  api.post("/", new CreateUserController().createUser);
-  api.get("/:userId", new ListUserController().listUser);
-  api.post(
+  const app = Router();
+
+  app.post("/", new UserController().createUser);
+  app.get("/", new UserController().list);
+  app.get("/:userId", new UserController().getUser);
+  app.post(
     "/signIn",
     SignInValidatorMiddleware.signInValidator,
-    new SignInUserController().signIn
+    new UserController().signIn
   );
+  app.post("/:userId/tasks", new TaskController().create);
+  app.get("/:userId/tasks", new TaskController().list);
+  app.delete("/:userId/tasks/:taskId", new TaskController().delete);
+  app.put("/:userId/tasks/:taskId", new TaskController().update);
 
-  api.use("/:userId/tasks", taskRoutes());
-
-  return api;
+  return app;
 };

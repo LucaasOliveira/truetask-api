@@ -46,7 +46,7 @@ export class User {
     return {
       id: this._id,
       email: this._email,
-      password: this._password,
+      password: this._password
     };
   }
 

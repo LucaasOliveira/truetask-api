@@ -2,25 +2,23 @@ import {
   Column,
   CreateDateColumn,
   Entity,
-  PrimaryGeneratedColumn,
+  PrimaryGeneratedColumn
 } from "typeorm";
 
 @Entity({
-  name: "user",
+  name: "user"
 })
 export class UserEntity {
-  @PrimaryGeneratedColumn("uuid")
-  id: string;
+  @PrimaryGeneratedColumn("uuid") id: string;
 
   @Column({ unique: true })
   email: string;
 
-  @Column()
-  password: string;
+  @Column() password: string;
 
   @CreateDateColumn({
     type: "timestamp",
-    name: "dthr_criacao",
+    name: "dthr_criacao"
   })
   dthrAtualizacao: Date;
 }

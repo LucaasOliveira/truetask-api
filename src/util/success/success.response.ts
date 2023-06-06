@@ -5,7 +5,7 @@ export class SuccessResponse {
     return res.status(200).send({
       ok: true,
       message,
-      data,
+      data
     });
   }
 
@@ -13,7 +13,7 @@ export class SuccessResponse {
     return res.status(201).send({
       ok: true,
       message,
-      data,
+      data
     });
   }
 }
