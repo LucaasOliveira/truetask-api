@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
-import { RequestError } from "../error/request.error";
-import { ServerError } from "../error/server.error";
+import { RequestError } from "../util/error/request.error";
+import { ServerError } from "../util/error/server.error";
 
 export class SignInValidatorMiddleware {
   public static signInValidator(
